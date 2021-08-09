@@ -84,7 +84,7 @@ class ChangeSetCollector extends AbstractCollector
             ->sort('ID', 'ASC')
             ->limit($this->config()->get('deletion_limit') * $this->config()->get('query_limit'));
 
-        return $dataList->columnUnique('ID');
+        return $dataList->dataQuery()->distinct(true)->column('ID');
     }
 
     private function getSQLQueryRecord(array $ids)
