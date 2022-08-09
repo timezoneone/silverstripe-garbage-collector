@@ -40,6 +40,8 @@ SilverStripe\GarbageCollector\GarbageCollectorService:
 
 Now we just need to define an execution for the GarbageCollectorService by calling `GarbageCollectorService::inst()->process();`. You may decide to do this in a BuildTask or Job depending on how you want to execute Garbage Collection (e.g. Crontab).
 
+A cron task has been added to this module: vendor/bin/sake dev/tasks/GarbageCollectorServiceTask
+
 ## Documentation
 
 Garbage Collection is based on the idea of removal/processing of records and items that may not have native garbage collection. This should be extendable to work with any type of data set as long as there are corresponding processors.

@@ -1,0 +1,21 @@
+---
+Name: TZOGarbageCollector
+---
+SilverStripe\GarbageCollector\Collectors\VersionedCollector:
+  # Increase Versioned keep limit to 5 records
+  keep_limit: 5
+  keep_lifetime: 7
+  # Define base classes to collect versions for
+  base_classes:
+    - SilverStripe\Assets\File
+    - SilverStripe\CMS\Model\SiteTree
+    
+SilverStripe\GarbageCollector\Collectors\ChangeSetCollector:
+  # Reduce Changeset Lifetime to 10 days
+  deletion_lifetime: 10
+
+# Register collectors with service
+SilverStripe\GarbageCollector\GarbageCollectorService:
+  collectors:
+    - 'SilverStripe\GarbageCollector\Collectors\VersionedCollector'
+    - 'SilverStripe\GarbageCollector\Collectors\ChangeSetCollector'
